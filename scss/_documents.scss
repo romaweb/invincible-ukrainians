@@ -1,0 +1,99 @@
+.documents {
+    @include adaptiveValue("padding-top", 120, 70);
+    // @include adaptiveValue("padding-bottom", 125, 75);
+
+    &__container {
+
+        @include mq(md) {
+            display: flex;
+            column-gap: rem(20);
+            align-items: flex-start;
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+    }
+
+    &__section-title {
+        @include adaptiveValue("margin-bottom", 25, 10, $md, 0);
+
+        @include mq(md) {
+            flex: 0 0 percent(520, 1290);
+        }
+    }
+
+    &__body {
+        margin: 0 -20px;
+
+        @include mq(md) {
+            flex: 1 1 100%;
+            margin: 0;
+        }
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
+
+        @include mq(lg) {
+            &:not(:last-child) {
+                margin-bottom: rem(30);
+            } 
+        }
+    }
+}
+
+.document-item {
+    display: flex;
+    align-items: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    row-gap: rem(16);
+    padding: rem(15) rem(20);
+    background-color: $themeBgLight;
+
+    // @include mq(xs) {
+    //     align-items: flex-start;
+    // }
+
+    @include mq(xs) {
+        flex-direction: row;
+        row-gap: rem(20);
+        justify-content: space-between;
+        
+    }
+
+
+    @include mq(lg) {
+        padding: rem(25) rem(30);
+    }
+
+    &__lnk {
+    }
+
+    &__btn {
+        flex: 1 1 100%;
+
+		@include mq(xs) {
+			flex: 0 1 auto;
+        }
+    }
+}
+.document-lnk {
+    color: $black;
+    display: flex;
+    align-items: center;
+    column-gap: rem(10);
+    transition: all $globalTransition;
+
+    &::before {
+        color: #ff4545;
+        @include adaptiveValue("font-size", 36, 32);
+    }
+
+    @include hover {
+        color: $theme;
+    }
+}

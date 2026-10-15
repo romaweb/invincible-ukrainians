@@ -1,0 +1,377 @@
+
+
+// https://codepen.io/rlchy/pen/PqPQmm
+.btn {
+	@extend %btnReset;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+    text-align: center;
+	@include adaptiveValue("padding-top", 19, 18);
+    @include adaptiveValue("padding-bottom", 17, 16);
+	@include adaptiveValue("padding-left", 64, 48);
+	@include adaptiveValue("padding-right", 64, 48);
+	font-weight: 700;
+	font-family: $secondaryFont;
+	color: $black;
+	letter-spacing: .1em;
+	line-height: 1.2;
+	text-transform: uppercase;
+    @include adaptiveValue("font-size", 16, 14);
+	background-color: $accent;
+	transition: all $globalTransition;
+    // box-shadow: 0px rem(4) 0px 0px $accentBgLight;
+
+	@include hover {
+		background-color: $black;
+		color: $white;
+		// box-shadow: none;
+        // background-color: $accentBgLight;
+        // transform: translateY(rem(4));
+	}
+
+    // @include mq(xl) {
+    //     font-size: rem(18);
+    //     padding: rem(16) rem(56) rem(18);
+    // }
+
+// 	&--outline {
+// 		background-color: transparent;
+// 		color: $black;
+// 		border: rem(1) solid $themeColor;
+
+// 		@include hover {
+// 			background-color: $themeColor;
+// 			color: $white;
+// 		}
+// 	}
+
+// 	&--outline-white-text {
+// 		color: $white;
+// 	}
+
+	&--black {
+		color: $white;
+		background-color: $black;
+
+		@include hover {
+			// color: $black;
+			background-color: $theme;
+		}
+	}
+
+// 	&--wide {
+// 		width: 100%;
+// 	}
+
+
+	&--small {
+		// @include adaptiveValue("padding-top", 16, 15);
+   		// @include adaptiveValue("padding-bottom", 15, 14);
+		   @include adaptiveValue("padding-top", 14, 12);
+   		@include adaptiveValue("padding-bottom", 12, 10);
+		// @include adaptiveValue("padding-left", 48, 36);
+		@include adaptiveValue("padding-left", 40, 30);
+		@include adaptiveValue("padding-right", 40, 30);
+		// @include adaptiveValue("padding-right", 48, 36);
+	// 	padding-top: rem(10);
+	// 	padding-bottom: rem(12);
+	// 	@include adaptiveValue("padding-left", 40, 28, $lg, $minWidth, 1);
+	// 	@include adaptiveValue("padding-right", 40, 28, $lg, $minWidth, 1);
+	// 	@include adaptiveValue("font-size", 16, 15, $lg, $minWidth, 1);
+	}
+
+	// &--outline {
+	// 	color: $black;
+	// 	border: rem(1) solid $accent;
+	// 	background-color: transparent;
+	// 	box-shadow: none;
+
+	// 	@include hover {
+	// 		color: $white;
+	// 		background-color: $accent
+	// 	}
+	// }
+}
+
+.icon-btn {
+	@extend %btnReset;
+	@include adaptiveValue("width", 44, 40);
+	@include adaptiveValue("height", 44, 40);
+	align-items: center;
+	justify-content: center;
+	display: inline-flex;
+	color: $white;
+	background-color: $theme;
+	font-size: rem(30);
+	transition: all $globalTransition;
+
+	@include hover {
+		background-color: $black;
+	}
+
+	&--large {
+		@include adaptiveValue("width", 58, 44);
+		@include adaptiveValue("height", 58, 44);
+		font-size: rem(40);
+		// @include adaptiveValue("width", 55, 44);
+		// @include adaptiveValue("height", 55, 44);
+	}
+}
+
+.text-btn {
+	@extend %btnReset;
+	display: inline-flex;
+	align-items: center;
+	font-weight: 700;
+	// background-color: $themeBgLight;
+	font-family: $secondaryFont;
+	color: $black;
+	letter-spacing: .1em;
+	line-height: 1.2;
+	text-transform: uppercase;
+    @include adaptiveValue("font-size", 16, 14);
+	transition: all $globalTransition;
+	column-gap: rem(10);
+
+	&::after {
+		content: '';
+		display: block;
+		width: rem(40);
+		height: rem(2);
+		background-color: $theme;
+		margin-top: rem(-4);
+		transition: all $globalTransition;
+	}
+
+	@include hover {
+		color: $theme;
+
+		&::after {
+			transform: translateX(rem(10));
+		}
+	}
+}
+
+// .btn-link {
+// 	@extend %btnReset;
+// 	display: inline-flex;
+// 	align-items: center;
+// 	flex-direction: row-reverse;
+// 	font-weight: 600;
+// 	color: $black;
+// 	font-size: rem(16);
+// 	line-height: 1.4;
+// 	transition: all $globalTransition;
+
+// 	&::before {
+// 		position: relative;
+// 		margin-left: rem(5);
+// 		color: $theme;
+// 		display: block;
+// 		flex: 0 0 auto;
+// 		font-size: rem(24);
+// 		transform: rotate(180deg);
+// 		transition: all $globalTransition;
+// 	}
+
+// 	@include hover {
+// 		color: $theme;
+// 		&::before {
+// 			transform: rotate(180deg) translateX(rem(-5));
+// 		}
+// 	}
+
+// 	@include mq(xl) {
+// 		font-size: rem(18);
+// 	}
+
+// 	&--white {
+// 		color: $white;
+// 	}
+// }
+
+// .arrow-link {
+// 	@include adaptiveValue("width", 65, 55, $lg, $minWidth, 1);
+// 	@include adaptiveValue("height", 65, 55, $lg, $minWidth, 1);
+// 	border-radius: 50%;
+// 	background-color: $accent;
+// 	display: inline-flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	color: $white;
+// 	box-shadow: 0px rem(4) 0px 0px $accentBgLight;
+// 	transition: all $globalTransition;
+
+// 	@include mq(xl) {
+// 		width: rem(75);
+// 		height: rem(75);
+// 	}
+
+// 	@include hover {
+// 		box-shadow: none;
+//         background-color: $accentBgLight;
+//         transform: translateY(rem(4));
+// 	}
+// }
+
+// .bottom-link {
+// 	@include adaptiveValue("width", 65, 55, $lg, $minWidth, 1);
+// 	@include adaptiveValue("height", 65, 55, $lg, $minWidth, 1);
+// 	border-radius: 50%;
+// 	background-color: transparent;
+// 	border: rem(2) solid $theme;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	color: $text;
+// 	transition: all $globalTransition;
+
+// 	&::before {
+// 		transform: rotate(135deg);
+// 	}
+
+// 	@include mq(xl) {
+// 		width: rem(75);
+// 		height: rem(75);
+// 	}
+
+// 	@include hover {
+//         background-color: $theme;
+// 	}
+// }
+
+// .spoller-btn {
+// 	@extend %btnReset;
+// 	display: inline-flex;
+// 	align-items: center;
+// 	flex-direction: row-reverse;
+// 	font-weight: 600;
+// 	color: $black;
+// 	font-size: rem(16);
+// 	line-height: 1.4;
+// 	transition: all $globalTransition;
+
+
+
+// 	&::before {
+// 		margin-left: rem(5);
+// 		color: $theme;
+// 		display: block;
+// 		flex: 0 0 auto;
+// 		font-size: rem(22);
+// 		transform: rotate(-90deg);
+// 		transition: all $globalTransition;
+// 	}
+
+// 	@include mq(xl) {
+// 		font-size: rem(18);
+// 	}
+
+// 	@include hover {
+// 		color: $theme;
+// 	}
+
+// 	&._hidden {
+// 		display: none;
+// 	}
+
+	
+
+// 	&__text-hide {
+// 		display: none;
+// 	}
+
+
+// 	&._open {
+// 		&::before {
+// 			transform: rotate(90deg);
+// 		}
+
+// 		.spoller-btn__text-show {
+// 			display: none;
+// 		}
+
+// 		.spoller-btn__text-hide {
+// 			display: block;
+// 		}
+// 	}
+
+	
+// }
+
+// .download-btn {
+// 	@extend %btnReset;
+// 	display: inline-flex;
+// 	align-items: center;
+// 	flex-direction: row-reverse;
+// 	font-weight: 600;
+// 	color: $black;
+// 	font-size: rem(16);
+// 	line-height: 1.4;
+// 	transition: all $globalTransition;
+
+// 	&::before {
+// 		margin-left: rem(10);
+// 		color: $theme;
+// 		display: block;
+// 		flex: 0 0 auto;
+// 		// font-size: rem(16);
+// 		transform: rotate(-225deg);
+// 		transition: all $globalTransition;
+// 	}
+
+// 	@include mq(xl) {
+// 		font-size: rem(18);
+
+		
+// 	}
+
+// 	@include hover {
+// 		color: $theme;
+
+// 		&::before {
+// 		}
+// 	}
+
+
+
+
+	
+// }
+
+
+.btn-close {
+	@extend %btnReset;
+	line-height: 1;
+	color: $black;
+	font-size: rem(24);
+	cursor: pointer;
+	transition: all $globalTransition;
+
+	@include hover {
+		color: $theme;
+	}
+
+// 	&--theme {
+// 		color: $theme;
+// 		@include hover {
+// 			color: $themeBgDark;
+// 		}
+
+// 	}
+
+// 	// &--black {
+// 	// 	color: $black;
+// 	// }
+
+}
+
+// .btns-group {
+// 	display: flex;
+// 	flex-wrap: wrap;
+// 	gap: rem(20);
+// 	&__btn {
+// 		flex: 0 0 auto;
+// 	}
+// }

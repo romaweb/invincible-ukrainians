@@ -1,0 +1,69 @@
+.help-block {
+    @include adaptiveValue("padding-top", 120, 70);
+    @include adaptiveValue("padding-bottom", 125, 75);
+    &__container {
+        padding: 0;
+        @include mq(lg) {
+            padding: 0 20px;
+        }
+        
+    }
+
+    &__wrap {
+        position: relative;
+        z-index: 0;
+        padding-left: rem(20);
+        padding-right: rem(20);
+        @include adaptiveValue("padding-top", 120, 70);
+        @include adaptiveValue("padding-bottom", 125, 75);
+        background-color: $accentBgLight;
+
+        &::after {
+            right: 0;
+            bottom: 0;
+            content: '';
+            position: absolute;
+            z-index: -1;
+            background: url(../img/embroider.png) 100% 100% no-repeat scroll;
+            background-size: contain;
+            @include adaptiveValue("width", 400, 200);
+            @include adaptiveValue("height", 200, 110);
+
+        }
+
+        @include mq(md) {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            padding-left: rem(30);
+            padding-right: rem(30);
+        }
+    }
+
+    &__section-title {
+        @include adaptiveValue("margin-bottom", 25, 15);
+    }
+
+    &__body {
+        @include adaptiveValue("margin-bottom", 35, 25, $md, 0, 0);
+
+        @include mq(md) {
+            flex: 0 1 50%;
+        }
+    }
+
+    &__text {
+    }
+
+    &__btn {
+        @include mq(md) {
+            margin-top: rem(10);
+        }
+
+    }
+
+}

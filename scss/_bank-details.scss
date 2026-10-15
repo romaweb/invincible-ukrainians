@@ -1,0 +1,215 @@
+.bank-details {
+    @include adaptiveValue("padding-top", 120, 70);
+    @include adaptiveValue("padding-bottom", 125, 75);
+
+    &--no-pb {
+        padding-bottom: 0;
+    }
+
+    &__container {
+    }
+
+    &__section-header {
+        @include adaptiveValue("margin-bottom", 40, 30);
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(40);
+
+        @include mq(lg) {
+            flex-direction: row-reverse;
+            align-items: flex-start;
+            column-gap: rem(30);
+        }
+    }
+
+    &__accounts {
+
+        @include mq(lg) {
+            flex: 0 1 calc(50% - rem(15));
+        }
+
+    }
+
+    &__account {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 25, 15);
+        }
+    }
+
+    &__donate-form {
+        margin: 0 -20px;
+
+       
+
+        @include mq(lg) {
+            margin: 0;
+            flex: 0 1 calc(50% - rem(15));
+        }
+    }
+}
+
+
+.bank-account {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("row-gap", 12, 8);
+
+    @include mq(sm) {
+        flex-direction: row;
+        column-gap: rem(20);
+    }
+
+    @include mq(lg) {
+        column-gap: rem(30);
+    }
+
+    &__img {
+        img {
+            @include imgFluid;
+        }
+
+        @include mq(sm) {
+            flex: 0 1 rem(210);
+        }
+    }
+
+
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        @include adaptiveValue("row-gap", 16, 4);
+        
+       
+    }
+
+    &__row {
+        @include mq(sm) {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: rem(5);
+
+        }
+        // background-color: $accent;
+    }
+
+    &__text {
+    }
+
+    &__copy {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        column-gap: rem(5);
+    }
+
+    &__copy-item {
+        word-break: break-all;
+        @include adaptiveValue("font-size", 18, 15);
+		line-height: 1.4;
+		font-weight: 600;
+		color: $black;
+    }
+
+    &__copy-btn {
+        @extend %btnReset;
+        flex: 0 0 auto;
+        font-size: rem(28);
+        line-height: 1;
+        // margin-top: rem(-0);
+        color: $theme;
+        cursor: pointer;
+        transition: all $globalTransition;
+
+        @include hover {
+            color: $black;
+        }
+    }
+
+    &__msg {
+        display: none;
+        position: absolute;
+        @include adaptiveValue("font-size", 14, 12);
+        // top: 0;
+        right: rem(32);
+        @include adaptiveValue("bottom", -12, -10);
+        color: $black;
+        background-color: $accent;
+        font-weight: 600;
+        padding: 0 rem(8);
+        line-height: 1.2;
+
+    }
+}
+
+.bank-details {
+
+    &__donate-form {
+    }
+}
+.donate-form {
+    background-color: $themeBgLight;
+    // padding: rem(15) rem(20) rem(25);
+    padding: rem(30) rem(20) rem(40);
+
+    @include mq(sm) {
+        padding-right: 30%;
+    }
+
+    @include mq(md) {
+        padding-right: 40%;
+    }
+
+
+        @include mq(lg) {
+            padding: rem(25) rem(30) rem(35);
+        }
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 18, 12);
+
+    }
+
+    &__number-radio {
+        @include adaptiveValue("margin-bottom", 25, 15);
+    }
+
+    &__label {
+        @include adaptiveValue("margin-bottom", 12, 8);
+
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: rem(20);
+
+        @include mq(xs) {
+            flex-direction: row;
+        }
+
+        
+
+        @include mq(lg) {
+            gap: rem(30)
+        }
+    }
+
+    &__form-field {
+        @include mq(xs) {
+            flex: 1 1 auto;
+        }
+    }
+
+    &__btn {
+        margin: 0 rem(-1);
+    }
+}
+
+
+

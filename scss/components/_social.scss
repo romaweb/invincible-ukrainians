@@ -1,0 +1,26 @@
+.social {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: rem(10) rem(20);
+
+	&--vertical {
+		flex-direction: column;
+	}
+
+	&__item {
+		
+
+	}
+
+	&__lnk {
+		flex: 0 0 auto;
+		font-size: rem(30);
+		color: $theme;
+		transition: all $globalTransition;
+
+		@include hover {
+			color: $black;
+		}
+	}
+}

@@ -1,0 +1,116 @@
+.hero {
+    // @include adaptiveValue("padding-top", 120, 70);
+    @include adaptiveValue("padding-top", 100, 50);
+    @include adaptiveValue("padding-bottom", 125, 75);
+
+    &__container {
+        // padding: 0;
+    }
+
+    &__slide {
+    }
+
+    .swiper {
+        // margin: 0 -20px;
+    }
+
+    &__section-footer {
+        @include adaptiveValue("margin-top", 40, 30);
+    }
+}
+
+.hero-slide {
+
+    &__title-lnk {
+        @include adaptiveValue("margin-bottom", 30, 8);
+
+    }
+
+    &__body {
+        @include mq(sm) {
+            display: flex;
+            column-gap: rem(20);
+            align-items: flex-start;
+            
+        }
+
+        @include mq(md) {
+            column-gap: rem(30);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(60);
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        @include adaptiveValue("row-gap", 30, 20);
+        @include adaptiveValue("margin-bottom", 24, 16);
+
+        @include mq(sm) {
+            flex: 0 1 calc(50% - rem(10));
+        }
+
+        @include mq(md) {
+            flex: 0 1 calc(50% - rem(15));
+        }
+
+        @include mq(lg) {
+            flex: 0 1 auto;
+        }
+    }
+
+    &__text {
+
+        // &:not(:last-child) {
+            // @include adaptiveValue("margin-bottom", 24, 16);
+        // }
+    }
+
+    &__btn {
+        // @include adaptiveValue("margin-bottom", 24, 16);
+
+        @include mq(lg) {
+            display: none;
+        }
+    }
+
+    &__donate-form {
+        display: none;
+
+        @include mq(lg) {
+            display: block;
+        }
+    }
+
+    &__donates-info {
+        
+
+    }
+
+    &__img {
+        @extend %ibg;
+        padding-top: 70%;
+
+        @include mq(sm) {
+            padding-top: 35%;
+            flex: 0 0 calc(50% - rem(10));
+        }
+
+        @include mq(md) {
+            flex: 0 0 calc(55% - rem(15));
+        }
+
+        @include mq(lg) {
+            flex: 0 0 percent(710, 1290);
+        }
+    }
+}
+
+
+
+
+

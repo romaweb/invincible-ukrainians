@@ -1,0 +1,50 @@
+.partners {
+    @include adaptiveValue("padding-top", 120, 70);
+    // @include adaptiveValue("padding-bottom", 125, 75);
+
+    &__section-header {
+        @include adaptiveValue("margin-bottom", 40, 30);
+    }
+
+    &__section-footer {
+        @include adaptiveValue("margin-top", 40, 30);
+    }
+
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+
+    &__item {
+        height: auto;
+    }
+
+    &__body {
+        margin: 0 -20px;
+
+        @include mq(md) {
+            margin: 0;
+        }
+    }
+
+}
+
+.patner-item {
+    background-color: $themeBgLight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: rem(20);
+    transition: all $globalTransition;
+
+    @include hover {
+        background-color: $accentBgLight;
+    }
+
+    @include mq(lg) {
+        padding: rem(30);
+    }
+
+    img {
+        @include imgFluid;
+    }
+}

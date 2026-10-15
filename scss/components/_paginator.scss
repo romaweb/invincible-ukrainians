@@ -1,0 +1,66 @@
+.paginator {
+	display: flex;
+	column-gap: rem(40);
+
+	&__arrows {
+		margin-left: auto;
+		display: flex;
+		align-items: center;
+		column-gap: rem(20);
+
+		@include mq(md) {
+			column-gap: rem(30);
+		}
+	}
+
+	&__prev,
+	&__next {
+		@extend %btnReset;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(20);
+		flex: 0 0 auto;
+		background-color: transparent;
+		color: $black;
+		overflow: hidden;
+		transition: all $globalTransition;
+
+		@include mq(md) {
+			font-size: rem(24);
+		}
+
+
+		@include hover {
+			color: $theme;
+		}
+	}
+
+	&__body {
+		display: flex;
+		align-items: center;
+		column-gap: rem(20);
+		@include adaptiveValue("font-size", 18, 17);
+		line-height: 1.4;
+		font-weight: 400;
+		color: $black;
+	}
+
+	&__current {
+		color: $theme;
+	}
+
+	&__text {
+		color: $text;
+		font-weight: 400;
+	}
+
+	&__quantity {
+		color: $black;
+	}
+
+	&__next {
+		transform: rotate(180deg);
+	}
+}
+

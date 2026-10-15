@@ -1,0 +1,149 @@
+.projects {
+    @include adaptiveValue("padding-top", 120, 70);
+    // @include adaptiveValue("padding-bottom", 125, 75);
+
+    &__container {
+    }
+
+    &__section-header {
+        @include adaptiveValue("margin-bottom", 40, 30);
+    }
+
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+
+    &__body {
+        margin: 0 -20px;
+
+        @include mq(md) {
+            margin: 0;
+        }
+    }
+
+    &__card {
+        height: auto;
+    }
+
+    &__section-footer {
+        @include adaptiveValue("margin-top", 40, 30);
+    }
+}
+
+
+
+.project-card {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    background-color: $accentBgLight;
+    // min-height: 100%;
+    // background-color: red;
+
+    &--closed {
+        background-color: $themeBgLight;
+    }
+
+    &__img-wrap {
+        display: block;
+        position: relative;
+    }
+    
+    &__img {
+        display: block;
+        @extend %ibg;
+        padding-top: 65%;
+    }
+
+    &__status {
+        display: block;
+        position: absolute;
+        bottom: rem(20);
+        left: rem(20);
+
+        @include mq(lg) {
+            bottom: rem(30);
+             left: rem(30);
+        }
+    }
+
+    &__content {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        height: 100%;
+        
+        padding: rem(20) rem(20) rem(25);
+
+        @include mq(lg) {
+            padding: rem(30) rem(30) rem(35);
+        }
+    }
+
+    &__body {
+        flex: 1 1 auto;
+        
+    }
+
+    &__title-lnk {
+        &:not(:last-child) {
+            margin-bottom: rem(2);
+        }
+        
+    }
+
+
+    &__btn {
+        @include adaptiveValue("margin-top", 20, 10);
+    }
+
+    &__donates-info {
+        @include adaptiveValue("margin-top", 6, 2);
+    }
+}
+
+.project-status {
+    background-color: $accent;
+    color: $black;
+    display: flex;
+    align-items: center;
+    column-gap: rem(5);
+    padding: rem(8) rem(20);
+
+    &::before {
+        font-size: rem(24);
+    }
+}
+
+.closed-projects {
+    @include adaptiveValue("padding-top", 120, 70);
+    // @include adaptiveValue("padding-bottom", 125, 75);
+
+    &__container {
+    }
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 40, 30);
+    }
+
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+
+    &__body {
+        margin: 0 -20px;
+
+        @include mq(md) {
+            margin: 0;
+        }
+    }
+
+    &__card {
+        height: auto;
+    }
+
+    &__section-footer {
+        @include adaptiveValue("margin-top", 40, 30);
+    }
+}
+

@@ -1,0 +1,109 @@
+.awards {
+    @include adaptiveValue("padding-top", 120, 70);
+    @include adaptiveValue("padding-bottom", 125, 75);
+    background-color: $themeBgLight;
+
+    &__section-header {
+        @include adaptiveValue("margin-bottom", 40, 30);
+    }
+
+    &__section-footer {
+        @include adaptiveValue("margin-top", 40, 30);
+    }
+
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+
+    &__body {
+        margin: 0 -20px;
+
+        @include mq(md) {
+            margin: 0;
+        }
+    }
+
+    &__item {
+        height: auto;
+    }
+}
+
+.award-item {
+    background-color: $white;
+    @include mq(lg) {
+        
+        display: flex;
+        align-items: stretch;
+        padding: rem(30);
+        gap: rem(30);
+        border-left: rem(4) solid $theme;
+        // flex-direction: row-reverse;
+    }
+    
+    &__img-wrap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding: rem(30) rem(50);
+        background-color: $accentBgLight;
+        transition: all $globalTransition;
+
+        @include hover {
+            background-color: $themeBgLight;
+
+            .award-item__zoom {
+                background-color: $black;
+            }
+        }
+
+        @include mq(lg) {
+            flex: 0 0 auto;
+            order: 2;
+        }
+    }
+
+    &__img {
+        max-width: rem(200);
+
+        img {
+            @include imgFluid;
+        }
+
+
+    }
+
+    &__zoom {
+        position: absolute;
+        z-index: 1;
+        right: rem(20);
+        bottom: 0;
+        transform: translateY(50%);
+
+        // @include mq(lg) {
+        //     right: rem(-22);
+        // }
+    }
+
+    &__body {
+        padding: rem(20);
+        background-color: $white;
+
+        @include mq(lg) {
+            flex: 1 1  100%;
+            padding: 0;
+            // padding: rem(30);
+            order: 1;
+        }
+
+        
+    }
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 4, 2);
+    }
+
+
+    &__text {
+        margin: 0;
+    }
+}

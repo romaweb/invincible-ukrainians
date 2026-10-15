@@ -1,0 +1,238 @@
+.footer {
+
+    &__top {
+        @include mq(md) {
+            background-color: $themeBgLight;
+        }
+    }
+
+    &__container {
+    }
+
+    &__top-body {
+        @include mq(md) {
+            display: flex;
+            align-items: stretch;
+            column-gap: rem(60);
+        }
+    }
+
+    &__top-inner {
+        
+        @include adaptiveValue("padding-bottom", 100, 50);
+        display: flex;
+        align-items: flex-start;
+        column-gap: rem(20);
+
+        @include mq(xs) {
+            column-gap: rem(60);
+        }
+
+        @include mq(md) {
+            flex: 0 0 calc(50% - rem(30));
+            @include adaptiveValue("padding-top", 110, 80);
+        }
+    }
+
+    &__logo {
+        display: block;
+        @include adaptiveValue("width", 140, 80);
+        flex: 0 0 auto;
+        
+        img {
+            @include imgFluid;
+        }
+    }
+
+    &__contacts {
+        flex: 0 1 auto;
+    }
+
+    &__map {
+        // background-color: red;
+        height: rem(360);
+        // width: 100%;
+        margin: 0 -20px;
+
+        @include mq(md) {
+            height: auto;
+            margin: 0;
+            flex: 0 0 calc(50% - rem(30));
+        }
+    }
+
+    &__bottom {
+        @include adaptiveValue("padding-bottom", 70, 50);
+        @include adaptiveValue("padding-top", 70, 50);
+
+    }
+
+    &__bottom-body {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        row-gap: rem(20);
+
+        @include mq(sm) {
+            flex-direction: row;
+            column-gap: rem(20);
+            flex-wrap: wrap;
+        }
+
+        @include mq(md) {
+            flex-wrap: nowrap;
+            column-gap: rem(60);
+        }
+
+        // @include mq(lg) {
+        //     column-gap: rem(30);
+        // }
+    }
+
+    &__bottom-col {
+        @include mq(sm) {
+            flex: 0 0 calc(50% - rem(10));
+        }
+
+        @include mq(md) {
+            order: 1;
+            flex: 0 0 calc(50% - rem(30));
+        }
+
+        // @include mq(lg) {
+        //     flex: 0 0 calc(50% - rem(20));
+        // }
+    }
+
+    &__copyright {
+        @include adaptiveValue("font-size", 14, 12);
+        margin: 0;
+    }
+
+
+    &__additional-menu {
+        @include mq(sm) {
+            flex: 0 1 calc(50% - rem(10));
+        }
+
+        @include mq(md) {
+            order: 2;
+            flex: 0 0 auto;
+            margin-right: auto;
+            // background-color: red;
+            flex: 0 1 percent(490, 1290);
+        }
+
+        @include mq(lg) {
+            // flex: 0 0 calc(50% - rem(20));
+        }
+
+    }
+
+    &__developers {
+        @include adaptiveValue("font-size", 14, 12);
+        margin: 0;
+
+        a {
+            color: $theme;
+            transition: all $globalTransition;
+
+            @include hover {
+                color: $black;
+                }
+            }
+
+            @include mq(sm) {
+                flex: 1 1 100%;
+            }
+
+            @include mq(md) {
+                order: 3;
+                flex: 0 0 percent(190, 1290);
+                
+            }
+        }
+}
+.contacts {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("row-gap", 15, 10);
+
+    &__telephones {
+        display: flex;
+        flex-direction: column;    
+        align-items: flex-start;
+        row-gap: rem(4);
+    }
+
+    &__tel {
+    
+    }
+
+    &__emails {
+        display: flex;
+        flex-direction: column;    
+        align-items: flex-start;
+        row-gap: rem(4);
+        word-break: break-all;
+    }
+
+    &__adress {
+        margin: 0;
+    }
+
+    &__social {
+    }
+}
+
+.tel {
+    display: inline-block;
+    font-weight: 700;
+	font-family: $secondaryFont;
+	color: $black;
+	letter-spacing: .1em;
+	line-height: 1.2;
+	text-transform: uppercase;
+    font-size: rem(20);
+	transition: all $globalTransition;
+
+    @include hover {
+        color: $theme;
+    }
+}
+
+.email {
+    display: inline-block;
+    font-weight: 600;
+    font-size: rem(16);
+    color: $black;
+    line-height: 1.2;
+    transition: all $globalTransition;
+
+    @include hover {
+        color: $theme;
+    }
+}
+
+
+.additional-menu {
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: rem(2);
+        }
+    }
+
+    &__lnk {
+        @include adaptiveValue("font-size", 14, 12);
+        line-height: 1.6;
+        display: inline-block;
+        color: $black;
+        transition: all $globalTransition;
+
+        @include hover {
+            color: $theme;
+        }
+    }
+}
+
+

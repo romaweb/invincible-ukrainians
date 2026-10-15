@@ -1,0 +1,50 @@
+
+
+.about {
+    @include adaptiveValue("padding-top", 120, 70);
+    @include adaptiveValue("padding-bottom", 125, 75);
+    background-color: $themeBgLight;
+    &__container {
+    }
+
+    &__section-title {
+        @include adaptiveValue("margin-bottom", 25, 15);
+
+        @include mq(md) {
+            width: 50%;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: rem(10);
+
+        @include mq(sm) {
+            flex-direction: row;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+    }
+
+    &__col {
+        @include mq(sm) {
+            flex: 0 0 calc(50% - rem(10));
+        }
+
+        @include mq(lg) {
+            flex: 0 0 calc(50% - rem(15));
+        }
+    }
+
+    &__text {
+    }
+
+    &__donates-info {
+        @include adaptiveValue("margin-top", 30, 20);
+    }
+}

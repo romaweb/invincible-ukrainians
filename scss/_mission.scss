@@ -1,0 +1,114 @@
+.mission {
+    @include adaptiveValue("padding-top", 120, 70);
+    // @include adaptiveValue("padding-bottom", 125, 75);
+    &__container {
+    }
+
+    &__section-header {
+        @include adaptiveValue("margin-bottom", 40, 30);
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(30);
+        // @include mq(sm) {
+        //     display: flex;
+        //     flex-wrap: wrap;
+        //     gap: rem(20);
+        // }
+
+        @include mq(lg) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            // position: relative;
+            // gap: rem(50) percent(470, 1290);
+            // justify-content: space-between;
+        }
+    }
+
+    &__col {
+        display: flex;
+        flex-direction: column;
+        gap: rem(30);
+
+        @include mq(sm) {
+            flex-direction: row;
+            row-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            flex-direction: column;
+            row-gap: rem(60);
+            flex: 0 0 percent(410, 1290);
+        }
+    }
+
+    &__item {
+        @include mq(sm) {
+            flex: 0 0 calc(50% - rem(10));
+        }
+
+        
+
+
+    //     &:not(:last-child) {
+    //         margin-bottom: rem(30);
+    //     }
+
+    //     @include mq(sm) {
+    //         margin: 0;
+    //         flex: 0 1 calc(50% - rem(10));
+
+    //         &:not(:last-child) {
+    //             margin-bottom: 0;
+    //         }
+        // }
+
+    //     @include mq(lg) {
+    //         margin: 0;
+    //         flex: 0 1 percent(410, 1290);
+    //     }
+    }
+
+
+    &__img {
+        max-width: rem(660);
+        margin: auto;
+        // width: 100%;
+        // align-self: center;
+    //     padding-top: 68%;
+    //     @extend %ibg;
+        img {
+            @include imgFluid;
+    //         object-fit: contain;
+        }
+
+        @include mq(lg) {
+            margin: 0 rem(-120);
+            flex: 0 1 rem(660);
+            position: relative;
+            z-index: -1;
+        }
+
+    }
+}
+
+
+.mission-item {
+    padding-left: rem(15);
+    border-left: rem(4) solid $theme;
+
+    @include mq(lg) {
+        padding-left: rem(20);
+    }
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 4, 2);
+    }
+
+    &__text {
+    }
+}
+

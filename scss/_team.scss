@@ -1,0 +1,55 @@
+.team {
+    @include adaptiveValue("padding-top", 120, 70);
+    // @include adaptiveValue("padding-bottom", 125, 75);
+
+    &__section-header {
+        @include adaptiveValue("margin-bottom", 40, 30);
+    }
+
+    &__section-footer {
+        @include adaptiveValue("margin-top", 40, 30);
+    }
+
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+
+    &__card {
+        height: auto;
+    }
+
+    &__body {
+        margin: 0 -20px;
+
+        @include mq(md) {
+            margin: 0;
+        }
+    }
+}
+
+.team-card {
+    background-color: $themeBgLight;
+
+    &__header {
+        display: flex;
+    }
+    &__img {
+        flex: 1 1 100%;
+        @extend %ibg;
+        padding-top: 75%;
+    }
+
+    &__social {
+        margin-top: rem(20);
+        flex: 0 0 auto;
+        @include adaptiveValue("width", 80, 60);
+    }
+
+    &__body {
+        padding: rem(15) rem(20);
+
+        @include mq(lg) {
+            padding: rem(20) rem(30);
+        }
+    }
+}
