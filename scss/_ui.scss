@@ -163,10 +163,10 @@
 	}
 
 	&__title {
-		// margin-top: rem(2);
-		// line-height: 1;
 		transition: all $globalTransition;
 		flex: 0 1 auto;
+
+		@include adaptiveValue("font-size", 18, 16);
 	}
 
 	&__icon-btn {
@@ -577,157 +577,157 @@
 	}
 
 
-// 	img {
-// 		@include imgFluid();
-// 		margin: auto;
-// 		@include adaptiveValue("margin-bottom", 20, 15);
-// 		@include adaptiveValue("margin-top", 20, 15);
-// 		@include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+	img {
+		@include imgFluid();
+		margin: auto;
+		@include adaptiveValue("margin-bottom", 20, 15);
+		@include adaptiveValue("margin-top", 20, 15);
+		@include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
 		
-// 	}
+	}
 
-// 	dl {
-// 		@include adaptiveValue("margin-bottom", 12, 8);
-// 		@include adaptiveValue("margin-top", 12, 8);
-// 	}
+	dl {
+		@include adaptiveValue("margin-bottom", 12, 8);
+		@include adaptiveValue("margin-top", 12, 8);
+	}
 
-// 	dt {
-// 		font-style: normal;
-// 			font-weight: 600;
-// 			color: $black;
-// 		dfn {
-// 			font-style: normal;
-// 			font-weight: 600;
-// 			color: $black;
-// 		}
-// 	}
+	dt {
+		font-style: normal;
+			font-weight: 600;
+			color: $black;
+		dfn {
+			font-style: normal;
+			font-weight: 600;
+			color: $black;
+		}
+	}
 
-// 	dd {
-// 		margin-bottom: rem(2);
-// 	}
+	dd {
+		margin-bottom: rem(2);
+	}
 
-// 	ol {
-// 		display: block;
-// 		list-style-position: outside;
-// 		list-style-type: none;
-// 		@include adaptiveValue("margin-bottom", 12, 8);
-// 		@include adaptiveValue("margin-top", 12, 8);
-// 		counter-reset: listCounter;
+	ol {
+		display: block;
+		list-style-position: outside;
+		list-style-type: none;
+		@include adaptiveValue("margin-bottom", 12, 8);
+		@include adaptiveValue("margin-top", 12, 8);
+		counter-reset: listCounter;
 
-// 		li {
-// 			display: list-item;
+		li {
+			display: list-item;
 
-// 			&:not(:last-child) {
-// 				@include adaptiveValue("margin-bottom", 5, 2);
-// 			}
-// 		}
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 5, 2);
+			}
+		}
 
-// 		li::before {
-// 			content: counter(listCounter) ".";
-// 			counter-increment: listCounter;
-// 			font-weight: 600;
-// 			margin-right: rem(10);
-// 			color: $black;
-// 		}
+		li::before {
+			content: counter(listCounter) ".";
+			counter-increment: listCounter;
+			font-weight: 600;
+			margin-right: rem(10);
+			color: $black;
+		}
 
 	}
 
-// 	ul {
-// 		list-style-position: inside;
-// 		list-style-type: disc;
-// 		display: block;
-// 		@include adaptiveValue("margin-bottom", 12, 8);
-// 		@include adaptiveValue("margin-top", 12, 8);
-// 		margin-left: rem(10);
+	ul {
+		list-style-position: inside;
+		list-style-type: disc;
+		display: block;
+		@include adaptiveValue("margin-bottom", 12, 8);
+		@include adaptiveValue("margin-top", 12, 8);
+		margin-left: rem(10);
 
-// 		li {
-// 			&:not(:last-child) {
-// 				@include adaptiveValue("margin-bottom", 5, 2);
-// 			}
-// 			&::marker {
-// 				display: list-item;
-// 				color: $theme;
-// 			}
-// 		}
-// 	}
+		li {
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 5, 2);
+			}
+			&::marker {
+				display: list-item;
+				color: $theme;
+			}
+		}
+	}
 
 	
 
-// 	h1 {
-// 		display: block;
-// 		line-height: 1.15;
-// 		color: $black;
-// 		font-family: $secondaryFont;
-// 		@include adaptiveValue("font-size", 38, 28, $lg, $minWidth, 1);
-// 		font-weight: 600;
-// 		@include adaptiveValue("margin-bottom", 10, 6);
-// 		@include adaptiveValue("margin-top", 15, 10);
+	h1 {
+		display: block;
+		line-height: 1.15;
+		color: $black;
+		font-family: $secondaryFont;
+		@include adaptiveValue("font-size", 38, 28, $lg, $minWidth, 1);
+		font-weight: 600;
+		@include adaptiveValue("margin-bottom", 10, 6);
+		@include adaptiveValue("margin-top", 15, 10);
 
-// 		@include mq(xl) {
-// 			font-size: rem(46);
-// 		}
-// 	}
+		@include mq(xl) {
+			font-size: rem(46);
+		}
+	}
 
-// 	h2 {
-// 		display: block;
-// 		line-height: 1.15;
-// 		color: $black;
-// 		font-family: $secondaryFont;
-// 		@include adaptiveValue("font-size", 34, 24, $lg, $minWidth, 1);
-// 		font-weight: 600;
-// 		@include adaptiveValue("margin-bottom", 10, 6);
-// 		@include adaptiveValue("margin-top", 15, 10);
+	h2 {
+		display: block;
+		line-height: 1.15;
+		color: $black;
+		font-family: $secondaryFont;
+		@include adaptiveValue("font-size", 34, 24, $lg, $minWidth, 1);
+		font-weight: 600;
+		@include adaptiveValue("margin-bottom", 10, 6);
+		@include adaptiveValue("margin-top", 15, 10);
 		
-// 		@include mq(xl) {
-// 			font-size: rem(38);
-// 		}
-// 	}
+		@include mq(xl) {
+			font-size: rem(38);
+		}
+	}
 
-// 	h3 {
-// 		display: block;
-// 		line-height: 1.15;
-// 		color: $black;
-// 		font-family: $secondaryFont;
-// 		@include adaptiveValue("font-size", 28, 20, $lg, $minWidth, 1);
-// 		font-weight: 600;
-// 		@include adaptiveValue("margin-bottom", 10, 6);
-// 		@include adaptiveValue("margin-top", 15, 10);
+	h3 {
+		display: block;
+		line-height: 1.15;
+		color: $black;
+		font-family: $secondaryFont;
+		@include adaptiveValue("font-size", 28, 20, $lg, $minWidth, 1);
+		font-weight: 600;
+		@include adaptiveValue("margin-bottom", 10, 6);
+		@include adaptiveValue("margin-top", 15, 10);
 		
-// 		@include mq(xl) {
-// 			font-size: rem(30);
-// 		}
-// 	}
+		@include mq(xl) {
+			font-size: rem(30);
+		}
+	}
 
-// 	h4 {
-// 		display: block;
-// 		line-height: 1.15;
-// 		color: $black;
-// 		font-family: $secondaryFont;
-// 		@include adaptiveValue("font-size", 22, 18, $lg, $minWidth, 1);
-// 		font-weight: 400;
-// 		@include adaptiveValue("margin-bottom", 10, 6);
-// 		@include adaptiveValue("margin-top", 15, 10);
+	h4 {
+		display: block;
+		line-height: 1.15;
+		color: $black;
+		font-family: $secondaryFont;
+		@include adaptiveValue("font-size", 22, 18, $lg, $minWidth, 1);
+		font-weight: 400;
+		@include adaptiveValue("margin-bottom", 10, 6);
+		@include adaptiveValue("margin-top", 15, 10);
 		
-// 		@include mq(xl) {
-// 			font-size: rem(24);
-// 		}
-// 	}
+		@include mq(xl) {
+			font-size: rem(24);
+		}
+	}
 
-// 	h5 {
-// 		display: block;
-// 		line-height: 1.15;
-// 		color: $black;
-// 		font-family: $secondaryFont;
-// 		text-transform: uppercase;
-// 		@include adaptiveValue("font-size", 14, 13, $lg, $minWidth, 1);
-// 		font-weight: 600;
-// 		@include adaptiveValue("margin-bottom", 10, 6);
-// 		@include adaptiveValue("margin-top", 15, 10);
+	h5 {
+		display: block;
+		line-height: 1.15;
+		color: $black;
+		font-family: $secondaryFont;
+		text-transform: uppercase;
+		@include adaptiveValue("font-size", 14, 13, $lg, $minWidth, 1);
+		font-weight: 600;
+		@include adaptiveValue("margin-bottom", 10, 6);
+		@include adaptiveValue("margin-top", 15, 10);
 		
-// 		@include mq(xl) {
-// 			font-size: rem(16);
-// 		}
-// 	}
+		@include mq(xl) {
+			font-size: rem(16);
+		}
+	}
 
 
 	p {
@@ -736,35 +736,35 @@
 	}
 
 
-// 	a {
-// 		font-weight: 600;
-// 		color: $theme;
-// 		transition: all $globalTransition;
+	a {
+		font-weight: 600;
+		color: $theme;
+		transition: all $globalTransition;
 
-// 		@include hover {
-// 			color: $themeBgLight;
-// 		}
-// 	}
+		@include hover {
+			color: $black;
+		}
+	}
 
-// 	b,
-// 	strong {
-// 		font-weight: 600;
-// 		color: $black;
-// 	}
+	b,
+	strong {
+		font-weight: 600;
+		color: $black;
+	}
 
-// 	i,
-// 	em {
-// 		font-style: italic;
-// 	}
+	i,
+	em {
+		font-style: italic;
+	}
 
-// 	blockquote {
-// 		font-style: italic;
-// 		border-left: rem(4) solid $theme;
-// 		@include adaptiveValue("margin-bottom", 15, 10);
-// 		@include adaptiveValue("margin-top", 15, 10);
-// 		padding-left: rem(10);
-// 	}
-// }
+	blockquote {
+		font-style: italic;
+		border-left: rem(4) solid $accent;
+		@include adaptiveValue("margin-bottom", 15, 10);
+		@include adaptiveValue("margin-top", 15, 10);
+		padding-left: rem(10);
+	}
+}
 
 .slider-arrows {
 	display: inline-flex;

@@ -1,0 +1,5 @@
+.sub-header {
+    @include adaptiveValue("padding-top", 50, 30);
+    @include adaptiveValue("padding-bottom", 50, 30);
+    background-color: $themeBgLight;
+}

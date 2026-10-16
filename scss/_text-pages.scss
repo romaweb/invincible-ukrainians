@@ -1,0 +1,146 @@
+
+.text-pages {
+    @include adaptiveValue("padding-top", 30, 20);
+    @include adaptiveValue("padding-bottom", 100, 60);
+    &__container {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        row-gap: rem(30);
+
+        @include mq(md) {
+            flex-direction: row;
+            align-items: flex-start;
+            column-gap: rem(16);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(32);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(64);
+        }
+    }
+
+    &__sidebar {
+       
+        @include mq(md) {
+            position: sticky;
+            top: rem(20);
+            flex: 0 0 rem(260);
+        }
+
+        @include mq(lg) {
+            flex: 0 0 rem(320);
+        }
+    }
+
+    &__article {
+
+        @include mq(lg) {
+            flex: 1 1 auto;
+        }
+
+        
+    }
+}
+
+.text-article {
+
+    &__header {
+        @include adaptiveValue("margin-bottom", 20, 16);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__title {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 4, 2);
+        }
+    }
+
+    &__text {
+    }
+}
+
+.sidebar-menu {
+     padding: rem(20) rem(20) rem(25);   
+    overflow: hidden;
+    background-color: $accentBgLight;
+
+    @include mq(lg) {
+            padding: rem(30) rem(30) rem(35);
+        }
+
+    &._init {
+
+        .sidebar-menu__mobile-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            transition: color $globalTransition;
+    
+            @include hover {
+                color: $theme;
+                cursor: pointer;
+            }
+        }
+    
+        .sidebar-menu__mobile-title::before {
+            content: "\e900";
+            font-family: "icons";
+            font-size: rem(14);
+            transform: rotate(270deg);
+            color: $theme;
+            transition: transform $globalTransition;
+        }
+    
+        .sidebar-menu__mobile-title._active::before {
+            transform-origin: center center;
+            transform: rotate(90deg);
+		}
+    
+    }
+
+
+    &__mobile-title {
+        
+
+        @include mq(md) {
+            display: none;
+        }
+    }
+
+    &__list {
+        @include mq(0, $md) {
+            padding-top: rem(6);
+        }
+
+    }
+
+    &__item {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 4, 2);
+        }
+        
+    }
+
+    &__lnk {
+        display: inline-block;
+        line-height: 1.25;
+        color: $black;
+        transition: all $globalTransition;
+
+        @include hover {
+            color: $theme;
+        }
+
+        &--active {
+           color: $theme;
+        }
+    }
+
+}

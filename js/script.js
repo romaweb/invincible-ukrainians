@@ -1,4 +1,156 @@
 "use strict";
+
+// //Spollers
+const spollersArray = document.querySelectorAll("[data-spollers]");
+if (spollersArray.length > 0) {
+  let t = Array.from(spollersArray).filter(function (e, t, o) {
+    return !e.dataset.spollers.split(",")[0];
+  });
+  t.length > 0 && l(t);
+  let o = Array.from(spollersArray).filter(function (e, t, o) {
+    return e.dataset.spollers.split(",")[0];
+  });
+  if (o.length > 0) {
+    let r = [];
+    o.forEach((e) => {
+      let t = e.dataset.spollers,
+        o = {},
+        s = t.split(",");
+      (o.value = s[0]),
+        (o.type = s[1] ? s[1].trim() : "max"),
+        (o.item = e),
+        r.push(o);
+    });
+    let s = r.map(function (e) {
+      return (
+        "(" + e.type + "-width: " + e.value + "px)," + e.value + "," + e.type
+      );
+    });
+    (s = s.filter(function (e, t, o) {
+      return o.indexOf(e) === t;
+    })).forEach((e) => {
+      let t = e.split(","),
+        o = t[1],
+        s = t[2],
+        a = window.matchMedia(t[0]),
+        i = r.filter(function (e) {
+          if (e.value === o && e.type === s) return !0;
+        });
+      a.addListener(function () {
+        l(i, a);
+      }),
+        l(i, a);
+    });
+  }
+  function l(e, t = !1) {
+    e.forEach((e) => {
+      (e = t ? e.item : e),
+        t.matches || !t
+          ? (e.classList.add("_init"), a(e), e.addEventListener("click", i))
+          : (e.classList.remove("_init"),
+            a(e, !1),
+            e.removeEventListener("click", i));
+    });
+  }
+  function a(e, t = !0) {
+    let o = e.querySelectorAll("[data-spoller]");
+    o.length > 0 &&
+      o.forEach((e) => {
+        t
+          ? (e.removeAttribute("tabindex"),
+            e.classList.contains("_active") ||
+              (e.nextElementSibling.hidden = !0))
+          : (e.setAttribute("tabindex", "-1"),
+            (e.nextElementSibling.hidden = !1));
+      });
+  }
+  function i(e) {
+    let t = e.target;
+    if (t.hasAttribute("data-spoller") || t.closest("[data-spoller]")) {
+      let o = t.hasAttribute("data-spoller") ? t : t.closest("[data-spoller]"),
+        r = o.closest("[data-spollers]"),
+        s = !!r.hasAttribute("data-one-spoller");
+      r.querySelectorAll("._slide").length ||
+        (s && !o.classList.contains("_active") && n(r),
+        o.classList.toggle("_active"),
+        _slideToggle(o.nextElementSibling, 500)),
+        e.preventDefault();
+    }
+  }
+  function n(e) {
+    let t = e.querySelector("[data-spoller]._active");
+    t && (t.classList.remove("_active"), _slideUp(t.nextElementSibling, 500));
+  }
+}
+
+
+
+// //SlideToggle
+let _slideUp = (target, duration = 500) => {
+	if (!target.classList.contains('_slide')) {
+		target.classList.add('_slide');
+		target.style.transitionProperty = 'height, margin, padding';
+		target.style.transitionDuration = duration + 'ms';
+		target.style.height = target.offsetHeight + 'px';
+		target.offsetHeight;
+		target.style.overflow = 'hidden';
+		target.style.height = 0;
+		target.style.paddingTop = 0;
+		target.style.paddingBottom = 0;
+		target.style.marginTop = 0;
+		target.style.marginBottom = 0;
+		window.setTimeout(() => {
+			target.hidden = true;
+			target.style.removeProperty('height');
+			target.style.removeProperty('padding-top');
+			target.style.removeProperty('padding-bottom');
+			target.style.removeProperty('margin-top');
+			target.style.removeProperty('margin-bottom');
+			target.style.removeProperty('overflow');
+			target.style.removeProperty('transition-duration');
+			target.style.removeProperty('transition-property');
+			target.classList.remove('_slide');
+		}, duration);
+	}
+}
+let _slideDown = (target, duration = 500) => {
+	if (!target.classList.contains('_slide')) {
+		target.classList.add('_slide');
+		if (target.hidden) {
+			target.hidden = false;
+		}
+		let height = target.offsetHeight;
+		target.style.overflow = 'hidden';
+		target.style.height = 0;
+		target.style.paddingTop = 0;
+		target.style.paddingBottom = 0;
+		target.style.marginTop = 0;
+		target.style.marginBottom = 0;
+		target.offsetHeight;
+		target.style.transitionProperty = "height, margin, padding";
+		target.style.transitionDuration = duration + 'ms';
+		target.style.height = height + 'px';
+		target.style.removeProperty('padding-top');
+		target.style.removeProperty('padding-bottom');
+		target.style.removeProperty('margin-top');
+		target.style.removeProperty('margin-bottom');
+		window.setTimeout(() => {
+			target.style.removeProperty('height');
+			target.style.removeProperty('overflow');
+			target.style.removeProperty('transition-duration');
+			target.style.removeProperty('transition-property');
+			target.classList.remove('_slide');
+		}, duration);
+	}
+}
+let _slideToggle = (target, duration = 500) => {
+	if (target.hidden) {
+		return _slideDown(target, duration);
+	} else {
+		return _slideUp(target, duration);
+	}
+}
+
 if (document.querySelector(".team .team__body")) {
   new Swiper(".team .team__body", {
     centeredSlides: false,
@@ -269,73 +421,6 @@ if (document.querySelector(".project-gallery .swiper")) {
     },
   });
 }
-
-
-
-
-// var tag = document.createElement('script');
-// tag.src = "https://www.youtube.com/iframe_api";
-// var firstScriptTag = document.getElementsByTagName('script')[0];
-// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-// function onYouTubeIframeAPIReady() {
-//   var slides = document.getElementsByClassName('video-gallery__slide');
-  
-//   var players = [];
-  
-//   for (var i=0; i < slides.length; i++) {
-//     var element = slides[i].getElementsByClassName('yt-player')[0];
-//     var id = element.getAttribute('data-id');
-    
-//     var player = new YT.Player(element, {
-//       height: '315',
-//       width: '560',
-//       videoId: id,
-//       playerVars: {
-//         autoplay: false,
-//         color: '#7fbc03',
-//         modestbranding: true,
-//         rel: 0
-//       }
-
-//     });
-//     players.push(player);
-//   }
-// }
-
-// if (document.querySelector(".video-gallery .swiper")) {
-
-//   var videoSlide = new Swiper(".vs", {
-//      centeredSlides: false,
-//      grabCursor: true,
-//      slidesPerView: 1,
-//      spaceBetween: 20,
-//      keyboard: {
-//        enabled: true,
-//      },
- 
-//      navigation: {
-//        nextEl: ".video-gallery .slider-arrows__arrow--next",
-//        prevEl: ".video-gallery .slider-arrows__arrow--prev",
-//      },
-//      loop: false,
-//      pagination: {
-//        el: ".video-gallery  .swiper-pagination",
-//        clickable: true,
-//      },
- 
-//      on: {
-
-//       slideChange: function () {
-//         var previousSlideIndex = videoSlide.previousIndex;
-//         if (players[previousSlideIndex]) {
-//             players[previousSlideIndex].pauseVideo();
-//         }
-//     }
-
-//      }
-//    });
-//  }
 
 
    // Підключення YouTube IFrame API
